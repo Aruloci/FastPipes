@@ -8,7 +8,7 @@ import net.fabricmc.loader.api.FabricLoader;
 import com.aruloci.fastpipes.FastPipes;
 import com.aruloci.fastpipes.FastPipesCommand;
 
-public final class FastPipesFabric implements ModInitializer {
+public class FastPipesFabric implements ModInitializer {
     @Override
     public void onInitialize() {
         ServerLifecycleEvents.SERVER_STARTING.register(

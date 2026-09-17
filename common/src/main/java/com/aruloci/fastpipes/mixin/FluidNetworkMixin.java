@@ -7,17 +7,10 @@ import org.spongepowered.asm.mixin.injection.At;
 import com.aruloci.fastpipes.FastPipesConfig;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 
-/**
- * Create stores a pipe network's throughput in {@code FluidNetwork.transferSpeed}
- * ({@code max(1, pumpPressure / 2)} mB/tick, computed only when the network forms or resets).
- * {@code tick()} reads that field exactly once, {@code int flowSpeed = transferSpeed;}, right
- * before draining the source. Scaling the value at that read means a config reload takes effect
- * on the next tick for every existing network, and Create's own bookkeeping stays untouched.
- * Targeted by name so {@code common} needs no Create jar on its classpath.
- */
 @Mixin(targets = "com.simibubi.create.content.fluids.FluidNetwork", remap = false)
-abstract class FluidNetworkMixin {
+public class FluidNetworkMixin {
 
+    // transferSpeed is only recomputed when a network resets, so scale it where tick() reads it
     @ModifyExpressionValue(
         method = "tick",
         at = @At(
@@ -27,7 +20,7 @@ abstract class FluidNetworkMixin {
             remap = false
         )
     )
-    private int createFastPipes$scaleTransferSpeed(int original) {
+    private int fastpipes$scaleTransferSpeed(int original) {
         return (int) FastPipesConfig.current().apply(original);
     }
 }

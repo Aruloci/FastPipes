@@ -10,11 +10,7 @@ import com.mojang.brigadier.context.CommandContext;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.network.chat.Component;
 
-/** {@code /createfastpipes} shows the active settings; {@code /createfastpipes reload} re-reads the file. */
-public final class FastPipesCommand {
-
-    private FastPipesCommand() {
-    }
+public class FastPipesCommand {
 
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
         dispatcher.register(literal("createfastpipes")

@@ -31,7 +31,7 @@ repositories {
     }
     maven {
         name = 'Create'
-        url = 'https://maven.createmod.net' // Create, Ponder, Flywheel
+        url = 'https://maven.createmod.net'
     }
     maven {
         name = 'Registrate'
@@ -42,7 +42,6 @@ repositories {
 dependencies {
     neoForge "net.neoforged:neoforge:$rootProject.neoforge_version"
 
-    // Create and the libraries it needs at dev runtime (layout from https://wiki.createmod.net/developers/).
     modImplementation("com.simibubi.create:create-$rootProject.minecraft_version:$rootProject.create_version:slim") { transitive = false }
     modImplementation "net.createmod.ponder:ponder-neoforge:$rootProject.ponder_version+mc$rootProject.minecraft_version"
     modCompileOnly "dev.engine-room.flywheel:flywheel-neoforge-api-$rootProject.minecraft_version:$rootProject.flywheel_version"

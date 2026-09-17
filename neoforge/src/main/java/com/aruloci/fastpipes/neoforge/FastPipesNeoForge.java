@@ -10,7 +10,7 @@ import com.aruloci.fastpipes.FastPipes;
 import com.aruloci.fastpipes.FastPipesCommand;
 
 @Mod(FastPipes.MOD_ID)
-public final class FastPipesNeoForge {
+public class FastPipesNeoForge {
     public FastPipesNeoForge() {
         NeoForge.EVENT_BUS.addListener(ServerAboutToStartEvent.class,
             event -> FastPipes.onServerStarting(FMLPaths.CONFIGDIR.get()));
