@@ -6,6 +6,7 @@
   "client": [
   ],
   "mixins": [
+    "FluidNetworkMixin"
   ],
   "injectors": {
     "defaultRequire": 1
